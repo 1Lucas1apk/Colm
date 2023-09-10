@@ -8,7 +8,10 @@ const config = require('../config.js');
 const { 
 	loadApplicationEvents,
 	loadMoonlinkEvents
-} = require('../handlers/events.js')
+} = require('../handlers/events.js');
+const {
+	loadCommands
+} = require('../handlers/commands.js');
 
 const client = new Client({
 	intents: 131071
@@ -21,6 +24,7 @@ client.moonlink = new MoonlinkManager(config.nodes, {}, (id, data) => {
 
 loadApplicationEvents(client)
 loadMoonlinkEvents(client.moonlink)
+loadCommands(client)
 
 client.login(process.env['TOKEN'])
 

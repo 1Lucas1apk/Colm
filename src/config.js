@@ -8,5 +8,6 @@ module.exports = {
 			password: process.env['LAVALINK_PASSWORD'],
 			identifer: process.env['LAVALINK_IDENTIFIER']
 		}
-	]
+	],
+	clientId: process.env['CLIENTID']
 }
