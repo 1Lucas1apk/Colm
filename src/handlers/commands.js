@@ -19,7 +19,7 @@ module.exports = {
             client.commands.set(command.data.name, command);
             commands.push(command.data.toJSON());
           } else {
-            console.log(`[WARNING] The command at ${folder}/${file} is missing a required "data" or "execute" property.`);
+            console.log(`[ WARNINGv] The command at ${folder}/${file} is missing a required "data" or "execute" property.`);
           }
         }
       }
@@ -28,14 +28,14 @@ module.exports = {
 
       const rest = new REST({ version: '10' }).setToken(token);
 
-      console.log(`Started refreshing ${commands.length} application (/) commands.`);
+      console.log(`[ Application ]: Started refreshing ${commands.length} application (/) commands.`);
 
       const data = await rest.put(
         Routes.applicationCommands(clientId),
         { body: commands },
       );
 
-      console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+      console.log(`[ Appliction ]: Successfully reloaded ${data.length} application (/) commands.`);
     } catch (error) {
       console.error(error);
     }
